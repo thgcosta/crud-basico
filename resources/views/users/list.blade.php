@@ -5,7 +5,7 @@
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
-                <div class="card-header"><a href="{{ url('usuarios/new') }}">Novo Usuario</a></div>
+                <div class="card-header"><a href="{{ url('users/new') }}">Novo Usuario</a></div>
 
                 <div class="card-body">
                     @if (session('status'))
@@ -26,15 +26,15 @@
                             </tr>
                         </thead>
                         <tbody>
-                    @foreach($usuarios as $usuario)
+                    @foreach($users as $user)
                     
                             <tr>
-                            <th scope="row">{{ $usuario->id }}</th>
-                            <td>{{ $usuario->name }}</td>
-                            <td>{{ $usuario->email }}</td>
-                            <td><a href="usuarios/update/{{$usuario->id}}" class="btn btn-info">Editar</button></td>
+                            <th scope="row">{{ $user->id }}</th>
+                            <td>{{ $user->name }}</td>
+                            <td>{{ $user->email }}</td>
+                            <td><a href="users/update/{{$user->id}}" class="btn btn-info">Editar</button></td>
                             <td>
-                                <form action="usuarios/delete/{{ $usuario->id }}" method="post">
+                                <form action="users/delete/{{ $user->id }}" method="post">
                                     @csrf
                                     @method('DELETE')
                                     <button type="submit" class="btn btn-danger">Excluir</button></td>

@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\UsuariosController;
+use App\Http\Controllers\UsersController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -21,9 +21,9 @@ Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
-Route::get('/usuarios', [UsuariosController::class, 'index'])->middleware('auth')->name('usuarios.home');
-Route::get('/usuarios/new', [UsuariosController::class, 'new'])->middleware('auth');
-Route::post('usuario/add', [UsuariosController::class, 'add'])->name('usuarios.add')->middleware('auth');
-Route::get('usuarios/update/{id}', [UsuariosController::class, 'update'])->name('usuarios.update')->middleware('auth');
-Route::post('usuarios/save/{id}', [UsuariosController::class, 'save'])->name('usuarios.save')->middleware('auth');
-Route::delete('usuarios/delete/{id}', [UsuariosController::class, 'delete'])->name('usuarios.delete')->middleware('auth');
+Route::get('/users', [UsersController::class, 'index'])->middleware('auth')->name('users.home');
+Route::get('/users/new', [UsersController::class, 'new'])->middleware('auth');
+Route::post('users/add', [UsersController::class, 'add'])->name('users.add')->middleware('auth');
+Route::get('users/update/{id}', [UsersController::class, 'update'])->name('users.update')->middleware('auth');
+Route::post('users/save/{id}', [UsersController::class, 'save'])->name('users.save')->middleware('auth');
+Route::delete('users/delete/{id}', [UsersController::class, 'delete'])->name('users.delete')->middleware('auth');
